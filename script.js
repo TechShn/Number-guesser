@@ -6,7 +6,7 @@ let currentRoundNumber = 1;
 
 // Function generate a random number between 0 and 8.
 const generateTarget = () => {
-    const randomNumber = Math.floor(Math.random() * 9);
+    const randomNumber = Math.floor(Math.random() * 10);
     return randomNumber;
 };
 
@@ -18,11 +18,9 @@ const compareGuesses = (user, computer, secret) => {
     ecartBetweenUandS = Math.abs(secret - user);
     ecartBetweenCandS = Math.abs(secret - computer);
 
-    if (ecartBetweenUandS === ecartBetweenCandS) {
+    if (ecartBetweenUandS <= ecartBetweenCandS) {
         return true;
-    } else if (ecartBetweenUandS < ecartBetweenCandS) {
-        return true;
-    } else if (ecartBetweenUandS > ecartBetweenCandS) {
+    } else {
         return false;
     };
 };
